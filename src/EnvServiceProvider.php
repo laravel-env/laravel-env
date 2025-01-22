@@ -3,6 +3,7 @@
 namespace LaravelEnv\LaravelEnv;
 
 use Illuminate\Support\ServiceProvider;
+use LaravelEnv\LaravelEnv\Commands\EnvCommand;
 
 class EnvServiceProvider extends ServiceProvider
 {
@@ -17,7 +18,7 @@ class EnvServiceProvider extends ServiceProvider
             ], 'config');
 
             // Registering package commands.
-            // $this->commands([]);
+            $this->commands([EnvCommand::class]);
         }
     }
 
@@ -31,7 +32,7 @@ class EnvServiceProvider extends ServiceProvider
 
         // Register the main class to use with the facade
         $this->app->singleton('laravel-env', function () {
-            return new LaravelEnv;
+            return new Env;
         });
     }
 }
