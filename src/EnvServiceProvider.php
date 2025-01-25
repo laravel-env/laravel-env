@@ -3,8 +3,8 @@
 namespace LaravelEnv\LaravelEnv;
 
 use Illuminate\Support\ServiceProvider;
-use LaravelEnv\LaravelEnv\Commands\EnvCommand;
-use LaravelEnv\LaravelEnv\Commands\EnvCompareExampleCommand;
+use LaravelEnv\LaravelEnv\Commands\CompareExampleCommand;
+use LaravelEnv\LaravelEnv\Commands\ValidateCommand;
 
 class EnvServiceProvider extends ServiceProvider
 {
@@ -19,7 +19,7 @@ class EnvServiceProvider extends ServiceProvider
             ], 'config');
 
             // Registering package commands.
-            $this->commands([EnvCommand::class, EnvCompareExampleCommand::class]);
+            $this->commands([ValidateCommand::class, CompareExampleCommand::class]);
         }
     }
 

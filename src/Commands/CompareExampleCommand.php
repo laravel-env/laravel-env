@@ -6,13 +6,15 @@ use Illuminate\Console\Command;
 use LaravelEnv\LaravelEnv\Validator;
 use RuntimeException;
 
-class EnvCompareExampleCommand extends Command
+class CompareExampleCommand extends Command
 {
     protected $signature = 'env:compare';
     protected $description = 'Compare keys between .env and .env.example files';
 
     public function handle(Validator $validator)
     {
+        dd(config('env'));
+
         try {
             $comparison = $validator->compare();
 
