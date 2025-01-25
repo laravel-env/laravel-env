@@ -15,7 +15,7 @@ class EnvServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__ . '/../config/config.php' => config_path('laravel-env.php'),
+                __DIR__ . '/../config/config.php' => config_path('env.php'),
             ], 'config');
 
             // Registering package commands.
