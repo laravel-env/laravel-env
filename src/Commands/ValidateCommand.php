@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace LaravelEnv\LaravelEnv\Commands;
 
 use Illuminate\Console\Command;
@@ -14,10 +16,7 @@ class ValidateCommand extends Command
 
     public function handle(): int
     {
-        $this->info('Validating your environment');
-
         $this->validateCurrentEnv();
-
 
         return self::SUCCESS;
     }
@@ -26,6 +25,14 @@ class ValidateCommand extends Command
     {
         $env = [];
         $schema = config('env.schema.development');
+
+        if (empty($schema)) {
+            $this->error('No env schema defined for the current environment');
+
+            return;
+        }
+
+        $this->info('Validating your environment');
 
         foreach (array_keys($schema) as $key) {
             $env[$key] = env($key, '');
@@ -36,13 +43,14 @@ class ValidateCommand extends Command
             $env,
             $schema,
             [],
-            array_combine(array_keys($schema), array_map('strtoupper', array_keys($schema)))
+            array_combine(array_keys($schema), array_map('strtoupper', array_keys($schema))),
         );
 
         if ($validator->fails()) {
             foreach ($validator->errors()->all() as $error) {
                 $this->error($error);
             }
+
             throw new InvalidEnvironmentException();
         }
 

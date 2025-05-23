@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace LaravelEnv\LaravelEnv;
 
 use Illuminate\Support\ServiceProvider;
@@ -15,7 +17,7 @@ class EnvServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__ . '/../config/config.php' => config_path('env.php'),
+                __DIR__.'/../config/config.php' => config_path('env.php'),
             ], 'config');
 
             $this->commands([ValidateCommand::class, CompareExampleCommand::class]);
@@ -27,9 +29,7 @@ class EnvServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'laravel-env');
-        $this->app->singleton('laravel-env', function () {
-            return new Env;
-        });
+        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'laravel-env');
+        $this->app->singleton('laravel-env', fn () => new Env());
     }
 }

@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-
 return [
     /*
     |--------------------------------------------------------------------------
@@ -75,19 +74,19 @@ return [
      */
     'environments' => [
         'development' => [
-            'APP_NAME'          => ['required', 'string'],
-            'APP_ENV'           => ['required', 'string'],
-            'APP_KEY'           => ['required', 'string'],
-            'APP_DEBUG'         => ['required', 'boolean'],
-            'APP_URL'           => ['required', 'url'],
+            'APP_NAME'  => ['required', 'string'],
+            'APP_ENV'   => ['required', 'string'],
+            'APP_KEY'   => ['required', 'string'],
+            'APP_DEBUG' => ['required', 'boolean'],
+            'APP_URL'   => ['required', 'url'],
 
         ],
         'production' => [
-            'APP_NAME'          => ['required', 'string'],
-            'APP_ENV'           => ['required', 'string'],
-            'APP_KEY'           => ['required', 'string'],
-            'APP_DEBUG'         => ['required', 'boolean'],
-            'APP_URL'           => ['required', 'url'],
+            'APP_NAME'  => ['required', 'string'],
+            'APP_ENV'   => ['required', 'string'],
+            'APP_KEY'   => ['required', 'string'],
+            'APP_DEBUG' => ['required', 'boolean'],
+            'APP_URL'   => ['required', 'url'],
         ],
     ],
 

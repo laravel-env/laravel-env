@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace LaravelEnv\LaravelEnv;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \LaravelEnv\LaravelEnv\Skeleton\SkeletonClass
+ * @see Skeleton\SkeletonClass
  */
 class EnvFacade extends Facade
 {

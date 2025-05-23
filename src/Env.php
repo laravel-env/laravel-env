@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace LaravelEnv\LaravelEnv;
 
-class Env
+final class Env
 {
     // 🚀
     public function __construct()
