@@ -18,7 +18,6 @@ class EnvServiceProvider extends ServiceProvider
                 __DIR__ . '/../config/config.php' => config_path('env.php'),
             ], 'config');
 
-            // Registering package commands.
             $this->commands([ValidateCommand::class, CompareExampleCommand::class]);
         }
     }
@@ -28,10 +27,7 @@ class EnvServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        // Automatically apply the package configuration
         $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'laravel-env');
-
-        // Register the main class to use with the facade
         $this->app->singleton('laravel-env', function () {
             return new Env;
         });
