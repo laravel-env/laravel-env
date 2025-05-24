@@ -16,8 +16,6 @@ class CompareExampleCommand extends Command
 
     public function handle(Validator $validator)
     {
-        dd(config('env'));
-
         try {
             $comparison = $validator->compare();
 
