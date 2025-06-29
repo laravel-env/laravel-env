@@ -26,11 +26,13 @@ class ValidateCommand extends Command
     protected function validateCurrentEnv(): void
     {
         $env = [];
-        $schema = config('env.schema.development');
+        $appEnv = env('APP_ENV', 'development');
+        $schema = config('env.schema.' . $appEnv, []);
 
         if (empty($schema)) {
-            $this->error('Error: No env schema defined for the current environment');
+            $this->error('Error: No env schema defined for the current environment: ' . $appEnv);
             $this->info('Please define the env schema in config/env.php, you can read more in the documentation');
+            
             $shouldValidateExample = confirm('Do you want validate your .env against the .env.example file?');
             if ($shouldValidateExample) {
                 $this->call(CompareExampleCommand::class);

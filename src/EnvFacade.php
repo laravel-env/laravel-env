@@ -6,9 +6,6 @@ namespace LaravelEnv\LaravelEnv;
 
 use Illuminate\Support\Facades\Facade;
 
-/**
- * @see Skeleton\SkeletonClass
- */
 class EnvFacade extends Facade
 {
     /**
