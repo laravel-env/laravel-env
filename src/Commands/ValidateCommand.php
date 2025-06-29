@@ -32,7 +32,6 @@ class ValidateCommand extends Command
         if (empty($schema)) {
             $this->error('Error: No env schema defined for the current environment: ' . $appEnv);
             $this->info('Please define the env schema in config/env.php, you can read more in the documentation');
-            
             $shouldValidateExample = confirm('Do you want validate your .env against the .env.example file?');
             if ($shouldValidateExample) {
                 $this->call(CompareExampleCommand::class);
@@ -59,7 +58,10 @@ class ValidateCommand extends Command
                 $this->error($error);
             }
 
-            throw new InvalidEnvironmentException();
+            if (config('env.config.throw', true)) {
+                throw new InvalidEnvironmentException();
+            }
+            return;
         }
 
         $this->info('Current environment validated successfully');
