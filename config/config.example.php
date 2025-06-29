@@ -14,7 +14,7 @@ return [
      */
     'config' => [
         'validate' => ['example', 'current'],
-        'throw'  => true, // If set to true, an exception will be thrown if validation fails
+        'throw'    => true, // If set to true, an exception will be thrown if validation fails
     ],
 
     /*
