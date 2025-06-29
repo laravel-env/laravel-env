@@ -37,8 +37,7 @@ class CompareExampleCommand extends Command
                 $this->newLine();
             }
 
-            // Display summary
-            $this->info('Summary:');
+            $this->info('Env config:');
             $this->table(
                 ['Location', 'Count'],
                 [

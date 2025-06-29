@@ -35,6 +35,7 @@ class ValidateCommand extends Command
             if ($shouldValidateExample) {
                 $this->call(CompareExampleCommand::class);
             }
+            
             return;
         }
 
