@@ -1,5 +1,5 @@
 {
-    "name": "laravel-env/laravel-env-prototype",
+    "name": "laravel-env/laravel-env",
     "description": "Laravel Env helps you validate your environment variables at runtime, buildtime and in CI. Move fast and with confidence, without a broken env.",
     "keywords": [
         "laravel-env",
@@ -34,12 +34,9 @@
         }
     },
     "scripts": {
-        "test": "vendor/bin/phpunit",
-        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage"
 
-    },
-    "config": {
-        "sort-packages": true
     },
     "extra": {
         "laravel": {
