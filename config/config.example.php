@@ -22,13 +22,13 @@ return [
     |--------------------------------------------------------------------------
     |
     | Define the database schema for each environment. The available options are:
-    | "development" or "production". You can define the schema using laravel's
+    | "local" or "production". You can define the schema using laravel's
     | built-in Rule class and validation methods.
     |
      */
 
     'schema' => [
-        'development' => [
+        'local' => [
             'APP_NAME'          => ['required', 'string'],
             'APP_ENV'           => ['required', 'string'],
             'APP_KEY'           => ['required', 'string'],
