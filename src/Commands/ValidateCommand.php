@@ -27,7 +27,8 @@ class ValidateCommand extends Command
         $schema = config('env.schema.development');
 
         if (empty($schema)) {
-            $this->error('No env schema defined for the current environment');
+            $this->error('Error: No env schema defined for the current environment');
+            $this->info('Please define the env schema in config/env.php, you can read more in the documentation');
 
             return;
         }
