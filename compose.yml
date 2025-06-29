@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+    php:
+        build:
+            context: .
+            dockerfile: docker/php/Dockerfile
+        container_name: laravel-env-dev
+        volumes:
+            - .:/app
+            - composer-cache:/home/dev/.composer
+        working_dir: /app
+        tty: true
+        stdin_open: true
+        environment:
+            - COMPOSER_CACHE_DIR=/home/dev/.composer/cache
+
+volumes:
+    composer-cache:
