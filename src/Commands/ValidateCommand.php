@@ -8,6 +8,8 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Validator;
 use LaravelEnv\LaravelEnv\Exceptions\InvalidEnvironmentException;
 
+use function Laravel\Prompts\confirm;
+
 class ValidateCommand extends Command
 {
     public $signature = 'env:validate';
@@ -29,7 +31,10 @@ class ValidateCommand extends Command
         if (empty($schema)) {
             $this->error('Error: No env schema defined for the current environment');
             $this->info('Please define the env schema in config/env.php, you can read more in the documentation');
-
+            $shouldValidateExample = confirm('Do you want validate your .env against the .env.example file?');
+            if ($shouldValidateExample) {
+                $this->call(CompareExampleCommand::class);
+            }
             return;
         }
 
@@ -39,7 +44,6 @@ class ValidateCommand extends Command
             $env[$key] = env($key, '');
         }
 
-        // $validator = Validator::make($env, config('env.schema.development'), [], array_keys(config('env.schema.development')));
         $validator = Validator::make(
             $env,
             $schema,
