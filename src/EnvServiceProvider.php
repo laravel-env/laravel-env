@@ -30,6 +30,5 @@ class EnvServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'laravel-env');
-        $this->app->singleton('laravel-env', fn () => new Env());
     }
 }
